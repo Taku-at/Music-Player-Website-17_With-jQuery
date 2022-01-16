@@ -2,6 +2,7 @@
 
 ## Resource
  - [tutorial: Part1](https://www.youtube.com/watch?v=Jnca3CroYbE)
+- [tutorial: Part2](https://www.youtube.com/watch?v=v_n9xVXgw_I&list=PL7sjyrcbibuqWBkwfC86Em7kJi1XLWYYY&t=0s)
 
-
- 10:44 ) Css
+ - compression tool [TextFixer](https://www.textfixer.com/html/compress-html-compression.php)
+ 15:42  Css
