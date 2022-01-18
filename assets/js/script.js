@@ -206,7 +206,9 @@ let albums = [
     },
 ];
 function numformatter(num) {
-    return num >= 10 ? num.toString() : '0' + num.toString();
+    // Set the two digits, ex) 10, 02 so on.
+    // If the numberof value is greater than 10 to string 
+    return num >= 10 ? num.toString() : '0' + num.toString(); 
 }
 
 $(document).ready(function () {
