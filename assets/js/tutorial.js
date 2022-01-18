@@ -206,6 +206,12 @@ let albums = [
     picture: "assets/images/king.jpg",
   },
 ];
+
+// Number Formatter
+function numformatter(num) {
+  // return the number two digit. ex) 01, 02
+  return num >= 10 ? num.toString() : '0' + num.toString();
+}
 $(document).ready(function () {
   // Pass through two arguments song element and index
   songs.map((song, i) => {
@@ -227,10 +233,60 @@ $(document).ready(function () {
     $(".left_songs_list").append(templates);
   });
 });
+// End of Number Formatter
 
+// Filter
+$(document).on('keyup', '#search_input', function(){
+  var searchTerm = ${this}.val()
+  if(searchTerm === '') {
+    // If search box is empty them return to all artist.
+    songs.map((song, i) => {
+      var templates =
+        // Compress the html elements: https://www.textfixer.com/html/compress-html-compression.php
+        `'<div class="song" data-id="${i}"> 
+              <img class="equalizer_gif" src="./assets/images/equalizer.gif" alt=""> 
+              <div class="song_num">${numformatter(i + 1)}</div>
+              <div class="song_content" style="position: relative;"> 
+                  <img class="song_img" src="${song.cover}" alt=""> 
+                  <img class="play_hover" src="./assets/images/play.png" alt=""> 
+              </div> 
+              <div class="song_info"> 
+                  <div class="song_name">${song.name}</div> 
+                  <div class="song_artist">${song.artist}</div> 
+              </div> 
+          </div>
+          '`;
+      $(".left_songs_list").append(templates);
+    });
+  } else {
+    songs.map(function(song) {
+      var {name, artist} = song;
+      if(name.toLowerCase().includes(searchTerm) === true || artist.toLowerCase().includes(searchTerm)) {
+        return song;
+      }
+    })
+    .filter(Boolean);
+    if(SpeechRecognitionResultList.length > 0) {
+      soresults..map((song, i) => {
+        var templates =
+          // Compress the html elements: https://www.textfixer.com/html/compress-html-compression.php
+          `'<div class="song" data-id="${i}"> 
+                <img class="equalizer_gif" src="./assets/images/equalizer.gif" alt=""> 
+                <div class="song_num">${numformatter(i + 1)}</div>
+                <div class="song_content" style="position: relative;"> 
+                    <img class="song_img" src="${song.cover}" alt=""> 
+                    <img class="play_hover" src="./assets/images/play.png" alt=""> 
+                </div> 
+                <div class="song_info"> 
+                    <div class="song_name">${song.name}</div> 
+                    <div class="song_artist">${song.artist}</div> 
+                </div> 
+            </div>
+            '`;
+        $(".left_songs_list").append(templates);
+      });
+    }
 
-// Number Formatter
-function numformatter(num) {
-    // return the number two digit. ex) 01, 02
-    return num >= 10 ? num.toString() : '0' + num.toString();
-}
+  }
+
+})
