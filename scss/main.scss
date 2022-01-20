@@ -26,7 +26,7 @@ body {
 
 /*----- Left -----*/
 .left {
-  background: #14162D;
+  background: #14162d;
   grid-row: 1/6;
   border-top-left-radius: 10px;
 
@@ -70,74 +70,72 @@ body {
   }
 
   &_songs_list {
-      max-height: 530px;
-      overflow: auto;
-      padding: 10px 10px 10px 0;
+    max-height: 530px;
+    overflow: auto;
+    padding: 10px 10px 10px 0;
 
-      /* Remove Scrollbar */
-      &::-webkit-scrollbar {
-        width: 0;
-      }
+    /* Remove Scrollbar */
+    &::-webkit-scrollbar {
+      width: 0;
+    }
 
-      .song {
-        display: flex;
-        align-items: center;
-        color: #fff;
-        font-size: 14px;
-        gap: 10px;
-        cursor: pointer;
-        padding: 5px;
-        border-top-right-radius: 5px;
-        border-bottom-right-radius: 5px;
-        
-        &:hover {
-          background: #171f36;
+    .song {
+      display: flex;
+      align-items: center;
+      color: #fff;
+      font-size: 14px;
+      gap: 10px;
+      cursor: pointer;
+      padding: 5px;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
 
-          /* Hover over to show the play image */
-          .play_hover {
-            display: block;
-          }
+      &:hover {
+        background: #171f36;
 
-        }
-
-        .equalizer_gif {
-          width: 20px;
-          display: none;
-        }
-
-        &_num {
-          color: #353c4a;
-          width: 20px;
-        }
-
-        &_img {
-          width: 50px;
-          height: 50px;
-          border-radius: 5px;
-          object-fit: cover;
-        }
-
+        /* Hover over to show the play image */
         .play_hover {
-          display: none;
-          width: 25px;
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-        }
-
-        &_info {
-
-        }
-
-        &_name {
-          font-weight: 600;
-        }
-
-        &_artist {
-          color: #353c4a;
+          display: block;
         }
       }
+
+      .equalizer_gif {
+        width: 20px;
+        display: none;
+      }
+
+      &_num {
+        color: #353c4a;
+        width: 20px;
+      }
+
+      &_img {
+        width: 50px;
+        height: 50px;
+        border-radius: 5px;
+        object-fit: cover;
+      }
+
+      .play_hover {
+        display: none;
+        width: 25px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      &_info {
+      }
+
+      &_name {
+        font-weight: 600;
+      }
+
+      &_artist {
+        color: #353c4a;
+      }
+    }
   }
 }
 /*----- /Left -----*/
@@ -148,9 +146,11 @@ body {
   grid-row: 1/6;
 
   &__top {
+    // width: 100%;
     height: 50%;
-    background-image: url();
+    background-image: url("https://dr.savee-cdn.com/things/5/c/35e8a4aa4e0961c4685c53.jpg");
     background-repeat: no-repeat;
+    background-position: center;
     background-size: cover;
     padding: 5px;
   }
@@ -160,7 +160,7 @@ body {
     align-items: center;
     gap: 1rem;
     margin-bottom: 10px;
-    background: rgba(255, 255, 255, .172);
+    background: rgba(255, 255, 255, 0.172);
     height: 35px;
     width: 300px;
     padding: 0 5px 0 10px;
@@ -183,7 +183,90 @@ body {
     }
   }
 
+  /*--- Popular ---*/
+  .popular {
+    padding: 10px;
+
+    &_header {
+      font-weight: 600;
+      font-size: 18px;
+      color: #fff;
+    }
+
+    &_list {
+      display: flex;
+      margin-top: 10px;
+      gap: 10px;
+    }
+  }
+  /*--- /Popular ---*/
 }
+
+.pop {
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all .2s;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.artist_img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, .5);
+  margin-bottom: 5px;
+}
+
+.pop_text {
+  color: #fff;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.album_cover {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, .5);
+  margin-bottom: 5px;
+}
+
 /*----- /Middle -----*/
 
+/*----- Right -----*/
+.right {
+  grid-row: 1/6;
+  border-top-right-radius: 10px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-size: cover;
+  background-position: 50%;
+  background-repeat: no-repeat;
+
+  &_song {
+    text-align: center;
+    column-rule: #fff;
+    // font-family: ;
+
+    &_img {
+      border-radius: 50%;
+      height: 250px;
+      width: 250px;
+      object-fit: cover;
+      box-shadow: 2px 2px 2px rgba(220, 220, 220, .2);
+      margin-bottom: 10px;
+    }
+  }
+}
+/*----- /Right -----*/
 

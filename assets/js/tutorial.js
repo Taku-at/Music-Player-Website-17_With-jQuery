@@ -232,12 +232,37 @@ $(document).ready(function () {
         '`;
     $(".left_songs_list").append(templates);
   });
+
+  // Artist Cover
+  artists.map(function (artist) {
+    var template = `
+      <div class="pop">
+        <img class="artist_img" src="${artist.picture}">
+        <div class="pop_text">${artist.name}</div>
+      </div>
+    `
+    $('#artists_list').append(template);
+  });
+
+  // Album
+  albums.map(function (album) {
+    var template = `
+      <div class="pop">
+        <img class="album_cover" src="${album.picture}">
+        <div class="pop_text">${album.name}</div>
+      </div>
+    `
+    $('#albums_list').append(template);
+  })
+  // Right column
+  $('.right').css('background-image', `linear-gradient(rgba(0, 0, 0, .8), rgba(0, 0, 0, .8)), url(${songs[0].cover})`)
+  $('.right_song_img').attr('src', songs[0].cover);
 });
 // End of Number Formatter
 
 // Filter
 $(document).on('keyup', '#search_input', function(){
-  var searchTerm = ${this}.val()
+  var searchTerm = $(this).val();
   if(searchTerm === '') {
     // If search box is empty them return to all artist.
     songs.map((song, i) => {
@@ -259,18 +284,22 @@ $(document).on('keyup', '#search_input', function(){
       $(".left_songs_list").append(templates);
     });
   } else {
+    var results = 
     songs.map(function(song) {
       var {name, artist} = song;
-      if(name.toLowerCase().includes(searchTerm) === true || artist.toLowerCase().includes(searchTerm)) {
+      if(name.toLowerCase().includes(searchTerm) == true || 
+         artist.toLowerCase().includes(searchTerm) == true) {
         return song;
       }
     })
     .filter(Boolean);
-    if(SpeechRecognitionResultList.length > 0) {
-      soresults..map((song, i) => {
+    // console.log(results)
+    if(results.length > 0) {
+      results.map((song, i) => {
+        $('.left_songs_list').html('');
         var templates =
           // Compress the html elements: https://www.textfixer.com/html/compress-html-compression.php
-          `'<div class="song" data-id="${i}"> 
+          `<div class="song" data-id="${i}"> 
                 <img class="equalizer_gif" src="./assets/images/equalizer.gif" alt=""> 
                 <div class="song_num">${numformatter(i + 1)}</div>
                 <div class="song_content" style="position: relative;"> 
@@ -282,7 +311,7 @@ $(document).on('keyup', '#search_input', function(){
                     <div class="song_artist">${song.artist}</div> 
                 </div> 
             </div>
-            '`;
+            `;
         $(".left_songs_list").append(templates);
       });
     }
@@ -290,3 +319,5 @@ $(document).on('keyup', '#search_input', function(){
   }
 
 })
+
+
